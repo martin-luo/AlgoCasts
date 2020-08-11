@@ -22,4 +22,24 @@ class Queue {
   }
 }
 
+/**
+ * This is the provided solutiton for Queue. It is on the opposite of 
+ * what I wrote, but the results are the same.
+ *
+ * @class QueueProvidedSolution
+ */
+class QueueProvidedSolution {
+  constructor() {
+    this.data = [];
+  }
+
+  add(newValue) {
+    this.data.unshift(newValue);
+  }
+
+  remove() {
+    return this.data.pop();
+  }
+}
+
 module.exports = Queue;
