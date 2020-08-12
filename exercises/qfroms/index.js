@@ -68,4 +68,41 @@ class Queue {
   }
 }
 
+class QueueProvidedSolution {
+  constructor() {
+    this.stackA = new Stack();
+    this.stackB = new Stack();
+  }
+
+  add(record) {
+    this.stackA.push(record);
+  }
+
+  remove() {
+    while (this.stackA.peek()) {
+      this.stackB.push(this.stackA.pop());
+    }
+
+    const firstRecord = this.stackB.pop();
+    while (this.stackB.peek()) {
+      this.stackA.push(this.stackB.pop());
+    }
+
+    return firstRecord;
+  }
+
+  peek() {
+    while (this.stackA.peek()) {
+      this.stackB.push(this.stackA.pop());
+    }
+
+    const firstRecord = this.stackB.peek();
+    while (this.stackB.peek()) {
+      this.stackA.push(this.stackB.pop());
+    }
+
+    return firstRecord;
+  }
+}
+
 module.exports = Queue;
